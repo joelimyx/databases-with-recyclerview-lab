@@ -56,11 +56,12 @@ public class GroceryDatabaseHelper extends SQLiteOpenHelper {
         LinkedList<GroceryItem> list = new LinkedList<>();
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(GROCERY_TABLE_NAME,
-                        new String[]{COL_NAME},
+                        new String[]{COL_NAME,COL_DESCRIPTION},
                         null,null,null,null,null);
         if (cursor.moveToFirst()){
             while (!cursor.isAfterLast()){
-                list.add(new GroceryItem(cursor.getString(cursor.getColumnIndex(COL_NAME))));
+                list.add(new GroceryItem(cursor.getString(cursor.getColumnIndex(COL_NAME)),
+                                        cursor.getString(cursor.getColumnIndex(COL_DESCRIPTION))));
                 cursor.moveToNext();
             }
         }

@@ -31,6 +31,7 @@ public class GroceryViewAdapter extends RecyclerView.Adapter<GroceryViewAdapter.
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         holder.mNameText.setText(mGroceryItemList.get(position).getName());
+        holder.mDescripText.setText(mGroceryItemList.get(position).getDescription());
     }
 
     @Override
@@ -40,6 +41,7 @@ public class GroceryViewAdapter extends RecyclerView.Adapter<GroceryViewAdapter.
 
     static class CustomViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.name) TextView mNameText;
+        @BindView(R.id.description) TextView mDescripText;
 
         public CustomViewHolder(View itemView) {
             super(itemView);
